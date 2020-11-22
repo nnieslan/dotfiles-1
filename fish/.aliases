@@ -1,10 +1,14 @@
 # GENERIC alias dotfile.  Put everything that is not OS specific in this dotfile.
 
 alias ll='exa -aa -g --long --header --git'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
 alias vi='nvim'
 alias vim='nvim'
 alias h='history'
-alias wtr='curl http://wttr.in/Grand_Junction'
+alias wtr='curl http://wttr.in/Denver'
 
 alias cat='bat --theme=zenburn'
 alias less='bat --theme=zenburn'
@@ -12,7 +16,7 @@ alias grep='grep -i --color'
 alias ack='ag'
 alias ak='ag'
 alias lr 'fd -aH -t f'
-alias lc='lolcat'
+alias cat='lolcat'
 alias md5='openssl md5'
 alias pe='printenv'
 alias sha1='openssl sha1'
@@ -27,6 +31,17 @@ alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias src='cd ~/src'
+alias bh='cd ~/src/bh'
+alias bhapi='cd ~/src/bh/api'
+alias bhapp='cd ~/src/bh/app'
+alias bhapp2='cd ~/src/bh/appv2'
+alias localip='ipconfig getifaddr en0'
+alias flush='dscacheutil -flushcache && killall -HUP mDNSResponder'
 
 # git aliases
 alias g='git'

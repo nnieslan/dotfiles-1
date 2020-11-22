@@ -27,7 +27,9 @@ setopt inc_append_history # add comamnds as they are typed, don't wait until she
 # line is a space
 setopt histignorespace 
 
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
+ZSH_THEME="bira"
+
+# source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # ZSH_THEME="~/.powerlevel10k/powerlevel10k"
 # POWERLEVEL9K_STATUS_OK_BACKGROUND='000' #alpha
@@ -35,7 +37,6 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 # POWERLEVEL9K_STATUS_ERROR_BACKGROUND='196' #red
 # POWERLEVEL9K_STATUS_ERROR_FOREGROUND='226' #yellow
 # POWERLEVEL9K_MODE='nerdfont-complete'
-
 
 
 # . '~/Library/Fonts/10-powerline-symbols.conf'
@@ -155,3 +156,7 @@ bindkey '^[[1;5D' emacs-backward-word
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+export NVM_DIR="/Users/nicknieslanik/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
