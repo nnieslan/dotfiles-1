@@ -1,4 +1,8 @@
 # BlueTufa dotfiles Repository
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/BlueTufa/dotfiles/CI)
+![GitHub issues](https://img.shields.io/github/issues/BlueTufa/dotfiles)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/BlueTufa/dotfiles)
+
 ## Contents
 A comprensive collection of Fish (Friendly Interactive Shell) and ZSH dotfiles which will allow a quick and easy customization of Fish or Zsh on a new install or an existing system.  This configuration will generally work cross-platform betwen MacOS and Linux, although you may encounter minor bugs on either.  
 
@@ -35,7 +39,7 @@ brew cask install font-meslo-lg-nerd-font
 ### Kitty 
 I have been using Kitty as my default terminal lately and other than some minor annoyances with ssh, it's a win.  Kitty is also configuration file based in a much more practical way than iTerm2.  If you choose to use that combination you'll get a default configuration by way of the symlink to `~/.config/kitty/kitty.conf`.    The great thing about the Kitty and Code New Roman font combination is that it works extremely well across multiple Linux distributions as well as MacOS, with great glyph support.  
 
-> The commands below will establish Kitty and Code New Roman on Mac, which work in tandem with the symlinked `~/.config/kitty.kitty.conf`.  If you are running on Linux then you still get the symlink, but the package manager install commands will vary wildly based on the distribution, so that will have to be out of the scope of this README.  TLDR: do the equivalent of the command below for your Linux distro and everything might just work.  
+> The commands below will establish Kitty and Code New Roman on Mac, which work in tandem with the symlinked `~/.config/kitty/kitty.conf`.  If you are running on Linux then you still get the symlink, but the package manager install commands will vary wildly based on the distribution, so that will have to be out of the scope of this README.  TLDR: do the equivalent of the command below for your Linux distro and everything might just work.  
 
 #### Preferred font (kitty terminal)
 ```bash
