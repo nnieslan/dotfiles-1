@@ -97,7 +97,7 @@ ZSH_THEME="bira"
 plugins=(
  git
  dotenv
- osx
+ macos
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -160,3 +160,9 @@ bindkey '^[[1;5D' emacs-backward-word
 export NVM_DIR="/Users/nicknieslanik/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Created by `pipx` on 2023-01-21 19:03:46
+export PATH="$PATH:/Users/nicknieslanik/.local/bin"
