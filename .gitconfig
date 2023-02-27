@@ -43,7 +43,7 @@
 	ci = commit -S
 	co = checkout
 	st = status
-	mg = merge 
+        mg = merge -S
 	pl = pull
 	ps = push
 	a = add
@@ -51,6 +51,8 @@
 	df = diff 
 	cl = clone
 	scorch = clean -dfX
+	squash = rebase --interactive -S
+        patch = apply --reject --whitespace=fix
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -191,3 +193,5 @@
   program = gpg
 [credential]
   helper = store
+[pull]
+  rebase = false

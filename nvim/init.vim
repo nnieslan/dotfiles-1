@@ -25,23 +25,29 @@ Plug 'sickill/vim-monokai'
 Plug 'rakr/vim-two-firewatch'
 Plug 'chrisbra/Colorizer'
 Plug 'elzr/vim-json'
-
-" Plug 'altercation/vim-colors-solarized'
+Plug 'ayu-theme/ayu-vim'
 Plug 'nanotech/jellybeans.vim'
-Plug 'BlueTufa/gruvbox'
 Plug 'dag/vim-fish'
-Plug 'dracula/vim'
-Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components'
+
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let g:coc_disable_startup_warning = 1
 
+set termguicolors
 set background=dark
-colorscheme gruvbox
+let ayucolor="mirage"
+" colorscheme gruvbox
 " colorscheme dracula
 " colorscheme jellybeans
+colorscheme ayu
 
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='twofirewatch'

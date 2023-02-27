@@ -4,7 +4,7 @@ alias ll='exa -aa -g --long --header --git'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
+alias n='npm'
 alias vi='nvim'
 alias vim='nvim'
 alias h='history'
@@ -16,6 +16,10 @@ alias less='bat --theme=zenburn'
 alias grep='grep -i --color'
 alias ack='ag'
 alias ak='ag'
+#alias grep='ag'
+#alias ag='ag -i --color --hidden --ignore={node_modules,build,package-lock.json}'
+#alias rg='rg -i --color=auto --colors=path:fg:yellow --colors=match:fg:green --hidden --no-ignore'
+
 alias lr='fd -aH -t f'
 alias lc='lolcat'
 alias md5='openssl md5'
@@ -23,6 +27,8 @@ alias pe='printenv'
 alias sha1='openssl sha1'
 alias sha256='openssl sha256'
 alias gwd='cd ~/src'
+alias gdd='cd ~/data'
+alias gwdd='cd ~/src/dotfiles'
 alias gwf='cd ~/src/qmk/qmk_firmware'
 alias rm='trash -v'
 alias screenfetch='screenfetch 2>/dev/null'
@@ -42,11 +48,11 @@ alias flush='dscacheutil -flushcache && killall -HUP mDNSResponder'
 
 # git aliases
 alias g='git'
-alias gd='git diff HEAD'
+alias ga='git add .'
+alias gcl='git clone'
+alias gd="git diff HEAD -- ':!package-lock.json'"
 alias gst='git status'
 alias gbr='git branch'
 alias gps='git push'
 alias diff='git diff --no-index'
 
-# scala specific
-alias sbtg8='sbt new playframework/play-scala-seed.g8'

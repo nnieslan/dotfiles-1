@@ -6,17 +6,21 @@ install-vim-plug () {
 }
 
 install-oh-my-zsh () {
+  make-backup ~/.zshrc
+  make-backup ~/.p10k.zsh
   echo "Remember to type exit after the oh-my-zsh install is complete"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   echo "Remember to run p10k configure any time you want to reconfigure powerlevel10k."
+
+  ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
 }
 
 make-backup () {
   # if the file exists and is not a symlink...
   if [[ -f $1 ]] && [[ ! -L $1 ]] 
   then
-    new_path="$(dirname $1)/backup.of.$(basename $1)"
+    new_path="$(dirname $1)/backup-of-$(basename $1)"
     echo "Making a backup of non-symlinked $1 to ${new_path}"
     mv $1 ${new_path}
   fi
@@ -29,22 +33,26 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.config/kitty
 
 # comment this out if you don't want to use oh-my-zsh or zsh support
-[[ -d ~/.oh-my-zsh ]] || install-oh-my-zsh
+# [[ -d ~/.oh-my-zsh ]] || install-oh-my-zsh
 
 [[ -f ~/.local/share/nvim/site/autoload/plug.vim ]] || install-vim-plug
 
 make-backup ~/.config/fish/config.fish 
 make-backup ~/.config/nvim/init.vim
-make-backup ~/.zshrc
-make-backup ~/.p10k.zsh
 
 # comment this out if you don't want to symlink gitconfig.  
 # make-backup ~/.gitconfig
 
 ln -sf $(pwd)/fish/config.fish ~/.config/fish/config.fish
 ln -sf $(pwd)/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
 ln -sf $(pwd)/zsh/.p10k.zsh ~/.p10k.zsh
+
+if [[ $(uname -v | grep 'Debian') ]]; then
+  echo 'Attempting to install baseline dependencies for cli support on Debian'
+  sudo ./debian/client-dependencies.sh
+fi
+
+touch ~/.hushlogin
 
 if [[ $(uname) == "Linux" ]]; then
   mkdir -p ~/.config/alacritty
@@ -64,7 +72,13 @@ if [[ $(uname) == "Linux" ]]; then
   ln -sf $(pwd)/wofi/style.css ~/.config/wofi/style.css
 fi 
 
-[[ $(uname) == "Darwin" ]] && ln -sf $(pwd)/kitty/kitty.conf.Darwin ~/.config/kitty/kitty.conf
+if [[ $(uname) == "Darwin" ]]; then
+  # this next line is totally subjective and will fall victim to my mood at any time
+  ln -sf $(pwd)/kitty/kitty.conf.ayu-mirage ~/.config/kitty/kitty.conf
+  # TODO: fix this, it only runs properly in a fish shell
+  # curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  # fisher install edc/bass
+fi
 
 for file in fish/.{functions,exports,aliases,*$(uname)}
 do
