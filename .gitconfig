@@ -195,3 +195,6 @@
   helper = store
 [pull]
   rebase = false
+[user]
+	name = Nick Nieslanik
+	email = nicknieslanik@gmail.com
