@@ -33,19 +33,22 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.config/kitty
 
 # comment this out if you don't want to use oh-my-zsh or zsh support
-# [[ -d ~/.oh-my-zsh ]] || install-oh-my-zsh
+[[ -d ~/.oh-my-zsh ]] || install-oh-my-zsh
 
 [[ -f ~/.local/share/nvim/site/autoload/plug.vim ]] || install-vim-plug
 
 make-backup ~/.config/fish/config.fish 
 make-backup ~/.config/nvim/init.vim
+make-backup ~/.zschrc
 
 # comment this out if you don't want to symlink gitconfig.  
-# make-backup ~/.gitconfig
+make-backup ~/.gitconfig
 
 ln -sf $(pwd)/fish/config.fish ~/.config/fish/config.fish
 ln -sf $(pwd)/nvim/init.vim ~/.config/nvim/init.vim
 ln -sf $(pwd)/zsh/.p10k.zsh ~/.p10k.zsh
+ln -sf $(pwd)/.gitconfig ~/.gitconfig
+ln -sf $(pwd)/zsh/.zshrc ~/.zshrc
 
 if [[ $(uname -v | grep 'Debian') ]]; then
   echo 'Attempting to install baseline dependencies for cli support on Debian'
