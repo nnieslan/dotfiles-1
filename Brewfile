@@ -16,7 +16,7 @@ brew "cowsay"
 brew "diff-so-fancy"
 brew "docker", link: false
 brew "docker-compose", link: false
-brew "exa"
+brew "eza"
 brew "fd"
 brew "ncurses"
 brew "fish"

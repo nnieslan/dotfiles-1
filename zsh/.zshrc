@@ -170,3 +170,5 @@ eval "$(pyenv init -)"
 
 # Created by `pipx` on 2023-01-21 19:03:46
 export PATH="$PATH:/Users/nicknieslanik/.local/bin"
+export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"

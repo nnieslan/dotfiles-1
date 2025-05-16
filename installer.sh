@@ -41,7 +41,8 @@ make-backup ~/.config/fish/config.fish
 make-backup ~/.config/nvim/init.vim
 
 # comment this out if you don't want to symlink gitconfig.  
-# make-backup ~/.gitconfig
+make-backup ~/.gitconfig
+ln -sf $(pwd)/.gitconfig ~/.gitconfig
 
 ln -sf $(pwd)/fish/config.fish ~/.config/fish/config.fish
 ln -sf $(pwd)/nvim/init.vim ~/.config/nvim/init.vim
@@ -86,4 +87,6 @@ do
   echo "Linking ${file}..."
   ln -sf $(pwd)/${file} ~/.config/${file}
 done
+
+install-oh-my-zsh 
 

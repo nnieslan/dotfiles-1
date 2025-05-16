@@ -1,6 +1,6 @@
 # GENERIC alias dotfile.  Put everything that is not OS specific in this dotfile.
 
-alias ll='exa -aa -g --long --header --git'
+alias ll='eza -aa -g --long --header --git'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
