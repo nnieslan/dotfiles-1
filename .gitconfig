@@ -43,7 +43,7 @@
 	ci = commit -S
 	co = checkout
 	st = status
-        mg = merge -S
+  mg = merge -S
 	pl = pull
 	ps = push
 	a = add
@@ -52,7 +52,7 @@
 	cl = clone
 	scorch = clean -dfX
 	squash = rebase --interactive -S
-        patch = apply --reject --whitespace=fix
+  patch = apply --reject --whitespace=fix
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -138,7 +138,7 @@
   diff = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX
 [push]
-  default = matching
+  default = simple
 
 [merge]
   log = true
@@ -197,4 +197,5 @@
   rebase = false
 [user]
 	name = Nick Nieslanik
-	email = nicknieslanik@gmail.com
+	email = nick@getplume.co
+

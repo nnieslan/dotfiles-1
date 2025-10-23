@@ -172,3 +172,41 @@ eval "$(pyenv init -)"
 export PATH="$PATH:/Users/nicknieslanik/.local/bin"
 export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"
+
+
+function split_pr () {
+  
+  #  if --help is passed, show usage
+  if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    echo "Usage: split_pr <base> <beefy_feature_branch> <pr1_branch> <path/to/dir1> [<path/to/dir2> …]"
+    return 0
+  fi
+
+  local BASE=${1:-uat}
+  local FEATURE=${2:?feature branch is required}
+  local PR1=${3:?pr1 branch is required}
+  shift 3
+  if [[ $# -lt 1 ]]; then
+    echo "Usage: split_pr1 <base> <feature_branch> <pr1_branch> <path1> [path2 …]"
+    return 1
+  fi
+  local paths=("$@")
+
+  # ensure BASE is up to date
+  git fetch origin
+  git checkout $BASE
+  #git reset --hard origin/$BASE
+
+  # new branch for PR1
+  git checkout -b $PR1
+
+  # grab only the folders/files you listed
+  git checkout $FEATURE -- "${paths[@]}"
+  git add    "${paths[@]}"
+  git commit -m "feat: isolate changes in ${paths[*]} for $PR1"
+  git push -u origin $PR1
+
+  echo
+  echo "✅ PR1 ready!"
+  echo
+}
