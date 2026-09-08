@@ -1,5 +1,10 @@
 #! /bin/bash
 
+install-brew () {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew bundle install
+}
+
 install-vim-plug () {
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -26,11 +31,25 @@ make-backup () {
   fi
 }
 
+install-docker () {
+  softwareupdate --install-rosetta
+  curl https://desktop.docker.com/mac/main/arm64/Docker.dmg \
+    -o $(pwd) /Docker.dmg
+  sudo hdiutil attach $(pwd)/Docker.dmg
+  sudo /Volumes/Docker/Docker.app/Contents/MacOS/install
+  sudo hdiutil detach /Volumes/Docker
+}
+
 # os-independent config directories
 mkdir -p ~/src/bin
 mkdir -p ~/.config/fish
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/kitty
+
+install-brew
+
+# comment this out if you don't want to install docker
+[[ -d ~/.docker ]] || install-docker
 
 # comment this out if you don't want to use oh-my-zsh or zsh support
 [[ -d ~/.oh-my-zsh ]] || install-oh-my-zsh
